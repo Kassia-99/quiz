@@ -24,9 +24,6 @@
     <ClCompile Include="TestScore.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ChangeWithPointer.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="GAMEWORLD.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
