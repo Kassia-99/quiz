@@ -12,8 +12,8 @@ int main()
 	char **matrix = malloc(sizeof(char *) * m);
 	for (int i = 0; i < m; ++i)
 	{
-		matrix[i] = malloc(sizeof(char) * n + 1);
-		memset(matrix[i], 0, sizeof(char) * n + 1);
+		matrix[i] = malloc(sizeof(char *) * n + 1);
+		memset(matrix[i], 0, sizeof(char *) * n + 1);
 	}
 
 
