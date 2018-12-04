@@ -1,26 +1,26 @@
-// 2¹ø
+// 2ë²ˆ
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define STD_NUM 0				// ¹è¿­¿¡¼­ ÇÐ¹øÀ» °¡¸®Å´
-#define TEST1 1					// ¹è¿­¿¡¼­ Ã¹ ¹øÂ° ¼ºÀûÀ» °¡¸®Å´
-#define TEST2 2					// ¹è¿­¿¡¼­ µÎ ¹øÂ° ¼ºÀûÀ» °¡¸®Å´
-#define TEST_SUM 3				// ¹è¿­¿¡¼­ ÃÑÁ¡À» °¡¸®Å´
+#define STD_NUM 0				// ë°°ì—´ì—ì„œ í•™ë²ˆì„ ê°€ë¦¬í‚´
+#define TEST1 1					// ë°°ì—´ì—ì„œ ì²« ë²ˆì§¸ ì„±ì ì„ ê°€ë¦¬í‚´
+#define TEST2 2					// ë°°ì—´ì—ì„œ ë‘ ë²ˆì§¸ ì„±ì ì„ ê°€ë¦¬í‚´
+#define TEST_SUM 3				// ë°°ì—´ì—ì„œ ì´ì ì„ ê°€ë¦¬í‚´
 int main()
 {
-	// (1) ¹è¿­ Á¤ÀÇ
+	// (1) ë°°ì—´ ì •ì˜
 	int sInfo[10][4] = { 0, };
 
 	srand((int)time(NULL));
 	for (int i = 0; i < 10; ++i)
 	{
-		sInfo[i][STD_NUM] = i;										// (2) ÇÐ¹ø°ú Á¤º¸¸¦ ÀúÀå
+		sInfo[i][STD_NUM] = i;						// (2) í•™ë²ˆê³¼ ì •ë³´ë¥¼ ì €ìž¥
 		sInfo[i][TEST1] = rand() % 101;
 		sInfo[i][TEST2] = rand() % 101;
-		sInfo[i][TEST_SUM] = sInfo[i][TEST1] + sInfo[i][TEST2];		// (3) ÃÑÁ¡À» °è»êÇÏ¿© ÀúÀå
+		sInfo[i][TEST_SUM] = sInfo[i][TEST1] + sInfo[i][TEST2];		// (3) ì´ì ì„ ê³„ì‚°í•˜ì—¬ ì €ìž¥
 	}
 
-	// ¹è¿­ ÀüÃ¼ Ãâ·Â ÄÚµå
+	// ë°°ì—´ ì „ì²´ ì¶œë ¥ ì½”ë“œ
 	for (int i = 0; i < 10; ++i)
 	{
 		for (int j = 0; j < 4; ++j)
@@ -30,23 +30,23 @@ int main()
 		printf("\n");
 	}
 
-	// (4) ÃÖ´ë ÃÑÁ¡ÀÎ ÇÐ»ýÀÇ Á¤º¸¸¦ Ãâ·Â
-	int max = 0;													// ÃÖ´ë ÃÑÁ¡ÀÎ ÇÐ»ýÀÇ Á¤º¸¸¦ °¡¸®Å°´Â ¹è¿­ÀÇ ÀÎµ¦½º ¹øÈ£
+	// (4) ìµœëŒ€ ì´ì ì¸ í•™ìƒì˜ ì •ë³´ë¥¼ ì¶œë ¥
+	int max = 0;								// ìµœëŒ€ ì´ì ì¸ í•™ìƒì˜ ì •ë³´ë¥¼ ê°€ë¦¬í‚¤ëŠ” ë°°ì—´ì˜ ì¸ë±ìŠ¤ ë²ˆí˜¸
 	for (int i = 0; i < 10; ++i)
 	{
 		if (sInfo[i][TEST_SUM] > sInfo[max][TEST_SUM])
 			max = i;
 	}
-	printf("Á¾ÇÕ 1µî ÇÐ¹ø: %d, Á¡¼ö 1: %d, Á¡¼ö 2: %d, ÃÑÁ¡: %d\n", 
+	printf("ì¢…í•© 1ë“± í•™ë²ˆ: %d, ì ìˆ˜ 1: %d, ì ìˆ˜ 2: %d, ì´ì : %d\n", 
 		sInfo[max][STD_NUM], 
 		sInfo[max][TEST1], 
 		sInfo[max][TEST2], 
 		sInfo[max][TEST_SUM]);
 
-	// (5) ÃÑÁ¡À» ±âÁØÀ¸·Î ³»¸²Â÷¼øÀ¸·Î Á¤·ÄÇÏ¿© Ãâ·Â
+	// (5) ì´ì ì„ ê¸°ì¤€ìœ¼ë¡œ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•˜ì—¬ ì¶œë ¥
 	for (int num = 0; num < 10; ++num)
 	{		
-		// ÃÖ´ë ÃÑÁ¡À» °¡Áø ÇÐ»ýÀ» Ã£À½
+		// ìµœëŒ€ ì´ì ì„ ê°€ì§„ í•™ìƒì„ ì°¾ìŒ
 		max = num;
 		for (int i = num; i < 10; ++i)
 		{
@@ -54,7 +54,7 @@ int main()
 				max = i;
 		}							 
 
-		// ÃÖ´ë ÃÑÁ¡À» °¡Áø ÇÐ»ý°ú ¸Ç ¾Õ ÇÐ»ýÀ» ±³È¯ÇÔ
+		// ìµœëŒ€ ì´ì ì„ ê°€ì§„ í•™ìƒê³¼ ë§¨ ì•ž í•™ìƒì„ êµí™˜í•¨
 		for (int j = 0; j < 4; ++j)
 		{
 			int temp = 0;
@@ -64,8 +64,8 @@ int main()
 		}
 	}
 
-	printf("\nÀüÃ¼ Á¤·Ä(ÃÑÁ¡ ±âÁØ, ³»¸²Â÷¼ø)\n");
-	// ¹è¿­ ÀüÃ¼ Ãâ·Â ÄÚµå
+	printf("\nì „ì²´ ì •ë ¬(ì´ì  ê¸°ì¤€, ë‚´ë¦¼ì°¨ìˆœ)\n");
+	// ë°°ì—´ ì „ì²´ ì¶œë ¥ ì½”ë“œ
 	for (int i = 0; i < 10; ++i)
 	{
 		for (int j = 0; j < 4; ++j)
